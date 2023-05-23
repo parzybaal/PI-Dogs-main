@@ -1,0 +1,52 @@
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img_henrydogs{
+    max-width: 10%;
+    max-height: 10%;
+}
+
+.img {
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 1;
+}
+
+.button_container {
+    position: absolute;
+    top: 61%;
+    transform: translateY(80%);
+    transform: translateX(340%);
+    text-align: center;
+    z-index: 2;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    font-size: 30px;
+    font-weight:bolder;
+    background-color: #1484FF;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Agrega una sombra */
+    transition: box-shadow 500ms ease; /* Agrega una transición suave */
+    background: linear-gradient(45deg, #1484FF, #00B8FF); /* Agrega un gradiente */
+}
+  
+
+  .button:hover {
+    background-color: #065DBC; 
+    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.3); /* Cambia la sombra al pasar el mouse */
+    cursor: pointer;
+    scale: 1.1;
+    transition: 500ms;
+    background: linear-gradient(45deg, #00B8FF, #1484FF)
+  }
+
+

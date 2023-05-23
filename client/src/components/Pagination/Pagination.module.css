@@ -1,0 +1,38 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 4px;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 4px;
+  }
+  
+  .button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .button:disabled {
+    background-color: #f2f2f2;
+    color: #999;
+    cursor: not-allowed;
+  }
+
+  .pageNumber {
+    font-size: 14px;
+    margin: 0 8px;
+  }
+  
+  .totalPages {
+    font-size: 14px;
+    margin-left: 8px;
+  }
