@@ -18,7 +18,7 @@ const SearchBar = () => {
 
     return (
         <div className={style.container}>
-            <input className={style.input} onChange={handleChange} value={name} type="search" placeholder="Enter a name" />
+            <input className={style.input} onChange={handleChange} name="search" value={name} type="search" placeholder="Enter a name" />
             <button className={style.button} onClick={() => handleSearch()}> Search </button>
         </div>
     )

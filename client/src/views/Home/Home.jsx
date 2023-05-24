@@ -33,14 +33,15 @@ const Home = () => {
     }
 
     return (
-        <div className={style.container}>
-            <DogsContainer dogsToShow={dogsToShow} />
 
+        <div className={style.container}>
             <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
                 handlePageChange={handlePageChange}
             />
+
+            <DogsContainer dogsToShow={dogsToShow} />
         </div>
 
     )

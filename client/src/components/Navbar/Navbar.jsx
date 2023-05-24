@@ -51,7 +51,7 @@ const Navbar = () => {
 
                 <div className={style.filters}>
                     <span className={style.opt}>Filter:</span>
-                    <select value={filter} className={style.filter} name="" id="" onClick={handleClickTemps} onChange={handleFilter}>
+                    <select value={filter} className={style.filter} name="filter" id="" onClick={handleClickTemps} onChange={handleFilter}>
 
                         <optgroup label="Origin">
                             <option value="all">All</option>
@@ -66,7 +66,7 @@ const Navbar = () => {
                     </select>
 
                     <span className={style.opt}>Order:</span>
-                    <select value={order} className={style.order} name="" id="" onChange={handleOrder}>
+                    <select value={order} className={style.order} name="order" id="" onChange={handleOrder}>
                         <option value="ascendent">Ascendent</option>
                         <option value="descendent">Descendent</option>
                         <option value="weight">Weight</option>

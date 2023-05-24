@@ -26,6 +26,8 @@ const CreateDog = () => {
         temperament: []
     })
 
+    const [successCreatedDog, setSuccessCreatedDog] = useState(false)
+
     useEffect(() => {
         dispatch(getTemperaments())
     }, [dispatch])
@@ -68,21 +70,23 @@ const CreateDog = () => {
             life_time: newDog.life_time.split(" ").join(" - "),
             temperament: newDog.temperament.join(", ")
         }));
+
+        setSuccessCreatedDog(true)
     }
 
     return (
-        <div>
+        <div className={style.container}>
             <NavLink to="/home">
-                <button> Back </button>
+                <button className={style.nav_link}> Back </button>
             </NavLink>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className={style.margin}>
                     <label htmlFor="">Race:</label>
                     <input type="text" name="name" value={newDog.name} onChange={handleChange} />
                     {errors.name && <p className={style.error_span}>{errors.name}</p>}
                 </div>
 
-                <div>
+                <div className={style.margin}>
                     <label htmlFor="">Height(cm):</label>
                     <div>
                         <input placeholder="min height - max height" type="text" name="height" value={newDog.height} onChange={handleChange} />
@@ -91,7 +95,7 @@ const CreateDog = () => {
                     </div>
                 </div>
 
-                <div>
+                <div className={style.margin}>
                     <label htmlFor="">Weight(kg):</label>
                     <div>
                         <input placeholder="min weight - max weight" type="text" name="weight" value={newDog.weight} onChange={handleChange} />
@@ -100,7 +104,7 @@ const CreateDog = () => {
                     </div>
                 </div>
 
-                <div>
+                <div className={style.margin}>
                     <label htmlFor="">Life time(year):</label>
                     <div>
                         <input placeholder="min lifetime - max lifetime" type="text" name="life_time" value={newDog.life_time} onChange={handleChange} />
@@ -108,7 +112,7 @@ const CreateDog = () => {
                         {errors.life_time && <p className={style.error_span}>{errors.life_time}</p>}
                     </div>
                 </div>
-                <div>
+                <div className={style.margin}>
                     <label htmlFor="">Temperaments:</label>
                     <select onChange={handleTemperaments} name="temperament" id="">
                         {temperaments.map(temp => <option key={temp[0].id} value={temp[0].name} disabled={newDog.temperament.includes(temp[0].name)}>{temp[0].name}</option>)}
@@ -122,7 +126,9 @@ const CreateDog = () => {
                             : <button type="submit" >Create</button>
                     }
                 </div>
-
+                <div>
+                    {successCreatedDog && <p className={style.success_message}>Your dog was succefully created!</p>}
+                </div>
             </form>
         </div>
     )

@@ -22,13 +22,13 @@ const validation = (form) => {
         errors.weight = "Enter 2 different values."
     }
 
-    if (weight[0] > weight[1]) {
+    if (weight[0]+1 > weight[1]+1) {
         errors.weight = "The minimum weight cannot be greater than maximum weight"
     }
     
 //-------------------------------------------------------------------
     let height = form.height.split(" ")
-
+    console.log(height[0], height[1])
     if (height[0] <= 0 || height[1] <= 0) {
         errors.height = "The minimum and maximum height cannot be 0 or negative."
     }
@@ -37,7 +37,7 @@ const validation = (form) => {
         errors.height = "Enter 2 different values."
     }
         
-    if (height[0] > height[1]) {
+    if (height[0]+1 > height[1]+1) {
         errors.height = "The minimum height cannot be greater than maximum height"
     }
 
@@ -52,7 +52,7 @@ const validation = (form) => {
         errors.life_time = "Enter 2 different values."
     }
 
-    if (life_time[0] > life_time[1]) {
+    if (life_time[0]+1 > life_time[1]+1) {
         errors.life_time = "The minimum life_time cannot be greater than maximum life_time"
     }
     
