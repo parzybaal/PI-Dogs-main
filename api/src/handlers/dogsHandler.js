@@ -1,10 +1,10 @@
-const { createNewDog, getDogById, getAllDogs, getDogByQuery } = require("../controllers/DogController")
+const { createNewDog, getDogById, getAllDogs, getDogByQuery, deleteDog } = require("../controllers/DogController")
 
 
 
 const getDogsHandler = async (req, res, next) => {
     const {name} = req.query
-
+    console.log(name)
     const search = name ? await getDogByQuery(name) : await getAllDogs();
     try {
         
@@ -56,9 +56,25 @@ const postDogsHandler = async (req, res, next) => {
     }
 }
 
+const deleteDogHandler = async (req, res, next) => {
+    const {id} = req.params
+ 
+    try {
+
+        const dogdeleted = await deleteDog(id)
+        res.status(200).json(dogdeleted)
+
+    } catch (error) {
+
+        res.status(404).send({error: error.message})
+
+    }
+}
+
 module.exports = {
     getDogsHandler,
     getDogsByIdHandler,
     getDogsByQueryHandler,
-    postDogsHandler
+    postDogsHandler,
+    deleteDogHandler
 }

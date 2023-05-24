@@ -96,10 +96,17 @@ const createNewDog = async (name, image, height, weight, life_time, temperament)
     return newDog
 }
 
+const deleteDog = async (id) => {
+    await Dogs.destroy({ where: { id:id }})
+    const dogs = getAllDogs();
+    return dogs
+}
+
 
 module.exports = {
     createNewDog,
     getDogById,
     getAllDogs,
-    getDogByQuery
+    getDogByQuery,
+    deleteDog
 }
