@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     width: 300px;
-    background-color: #0950a7;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #050088, #08719e);
+    border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px;
     margin: 25px;
@@ -27,15 +27,18 @@
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
+    font-weight: bold;
 }
   
 .temps {
     font-size: 14px;
     color: #000000;
     margin-bottom: 5px;
+    font-weight: bold;
 }
   
 .weight {
     font-size: 14px;
     line-height: 1.5;
+    font-weight: bold;
 }
