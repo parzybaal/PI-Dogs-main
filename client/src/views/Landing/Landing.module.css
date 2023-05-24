@@ -2,7 +2,7 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    background-color: aqua;
+    background-color: rgb(13, 111, 191);
     display: flex;
     justify-content: center;
     align-items: center;

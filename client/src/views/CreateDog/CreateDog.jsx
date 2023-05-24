@@ -47,6 +47,10 @@ const CreateDog = () => {
         })
 
         setErrors(validate)
+
+        if (successCreatedDog) {
+            setSuccessCreatedDog(false)
+        }
     }
 
     const handleTemperaments = (event) => {
