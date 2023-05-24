@@ -1,25 +1,47 @@
 import { useParams } from "react-router-dom"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getDetailDog, cleanDogById } from "../../redux/actions/actions"
+import { getDetailDog, cleanDogById, deleteDog } from "../../redux/actions/actions"
 import style from "./Detail.module.css"
 const Detail = () => {
 
     const { id } = useParams();
     const dog = useSelector(state => state.dogById)
     const dispatch = useDispatch()
+    const [deleteState, setDeleteState] = useState(true)
+
+    const handleDelete = () => {
+        dispatch(deleteDog(id))
+        setDeleteState(false)
+    }
 
     useEffect(() => {
-        dispatch(getDetailDog(id))
+        if (deleteState) {
+            dispatch(getDetailDog(id))
+        }
         return () => dispatch(cleanDogById())
     }, [dispatch, id])
 
     return (
         <div className={style.container}>
 
+            {deleteState
+                &&
+                <div className={style.delete_container}>
+                    <button onClick={() => handleDelete()} className={style.delete}>Delete</button>
+                </div>
+            }
 
+            {!deleteState
+                &&
+                <div className={style.delete_message}>
+                    <p>The dog was sucefully DELETED</p>
+                </div>
+            }
 
-            {dog.name
+            {deleteState
+                &&
+                dog.name
                 ? <div className={style.div_container}>
 
                     <div className={style.title}>
@@ -47,8 +69,8 @@ const Detail = () => {
                     <p className={style.text}>Lifetime: {dog?.life_time}</p>
 
                 </div>
-                : <div className={style.loading}>WASHING PUPPIES...</div>}
-
+                : deleteState && <div className={style.loading}>WASHING PUPPIES...</div>
+            }
         </div>
     )
 }

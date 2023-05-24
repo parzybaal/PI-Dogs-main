@@ -70,7 +70,20 @@ const CreateDog = () => {
             life_time: newDog.life_time.split(" ").join(" - "),
             temperament: newDog.temperament.join(", ")
         }));
-
+        setErrors({
+            name: "",
+            weight: "",
+            height: "",
+            life_time: "",
+            temperament: []
+        })
+        setNewDog({
+            name: "",
+            weight: "",
+            height: "",
+            life_time: "",
+            temperament: []
+        })
         setSuccessCreatedDog(true)
     }
 
@@ -121,7 +134,7 @@ const CreateDog = () => {
 
                 <div>
                     {
-                        (Object.keys(errors).length > 0)
+                        (Object.keys(errors).length > 0 || successCreatedDog)
                             ? <button type="submit" disabled={true}>Create</button>
                             : <button type="submit" >Create</button>
                     }

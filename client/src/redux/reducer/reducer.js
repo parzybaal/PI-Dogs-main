@@ -8,6 +8,7 @@ import {
     ORDER_DOGS,
     FILTER_BY_TEMPS,
     CLEAN_DOG_BY_ID,
+    DELETE_DOG,
  } from "../actions-types/actions-types";
 
 
@@ -17,8 +18,8 @@ const initialState = {
     temperaments: [],
     dogsfiltered: [],
     orderDogs: false,
-}
-;
+};
+
 
 const rootReducer = (state = initialState, {type, payload}) => {
     switch(type){
@@ -73,8 +74,11 @@ const rootReducer = (state = initialState, {type, payload}) => {
             else if (payload === "descendent") {
                 order = state.dogsfiltered.sort((a, b) => (a.name < b.name) ? 1 : -1)
             }
-            else if (payload === "weight") {
-                order = state.dogsfiltered.sort((a,b) => a.weight.trim().split("-")[0] > b.weight.trim().split("-")[0] ? 1 : -1)
+            else if (payload === "weight min-max") {
+                order = state.dogsfiltered.sort((a,b) => +a.weight.trim().split("-")[0] > +b.weight.trim().split("-")[0] ? 1 : -1)
+            }
+            else if (payload === "weight max-min") {
+                order = state.dogsfiltered.sort((a,b) => +a.weight.trim().split("-")[0] < +b.weight.trim().split("-")[0] ? 1 : -1)
             }
             else {
                 order = state.dogsfiltered
@@ -95,6 +99,12 @@ const rootReducer = (state = initialState, {type, payload}) => {
             return {
                 ...state,
                 dogById: []
+            }
+        case DELETE_DOG:
+            return {
+                ...state,
+                dogs: [...payload],
+                dogsfiltered: [...payload]
             }
         default:
             return { ...state };

@@ -8,7 +8,8 @@ import {
     FILTER_BY_TEMPS,
     ORDER_DOGS,
     FILTER_BY_ORIGIN,
-    CLEAN_DOG_BY_ID
+    CLEAN_DOG_BY_ID,
+    DELETE_DOG
  } from "../actions-types/actions-types"
  
 const URL = "http://localhost:3001/dogs"
@@ -31,7 +32,6 @@ export const getDetailDog = (id) => {
 export const getDogByName = (name) => {
     return async function (dispatch){
         const response = await axios.get(`${URL}/search?name=${name}`);
-        console.log(response.data)
         return dispatch ({
             type: GET_DOG_BY_NAME,
             payload: response.data
@@ -56,6 +56,16 @@ export const createDog = (props) => {
             type: CREATE_DOG,
             payload: response.data
         })
+    }
+}
+
+export const deleteDog = (id) => {
+    return async function (dispatch) {
+       const response = await axios.delete(`${URL}/${id}`) 
+       return dispatch ({
+        type: DELETE_DOG,
+        payload: response.data
+       })
     }
 }
 

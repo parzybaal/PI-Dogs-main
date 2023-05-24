@@ -17,6 +17,7 @@ form {
     margin-top: 25px;
     margin-bottom: 25px;
   }
+
   form input[type="text"],
   form select {
     width: 90%;
@@ -79,6 +80,7 @@ form {
     color: rgb(0, 15, 128);
     font-weight: bold;
     margin-top: 15px;
+    font-size: 25px;
   }
   
   

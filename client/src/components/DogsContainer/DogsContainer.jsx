@@ -10,7 +10,7 @@ const DogsContainer = ({ dogsToShow }) => {
 
     return (
         <div className={style.container}>
-            {dogsToShow.map(dog =>
+            {dogsToShow?.map(dog =>
                 dog.createdApi
                     ?
                     <DogCard

@@ -12,14 +12,6 @@ const Home = () => {
     const dogsfiltered = useSelector(state => state.dogsfiltered)
     const dispatch = useDispatch();
 
-    orderDogs = false
-    useEffect(() => {
-
-        if (!orderDogs) {
-            dispatch(getAllDogs())
-        }
-    }, [dispatch, orderDogs])
-
     let page = 1;
     const [currentPage, setCurrentPage] = useState(page);
     const dogsForPage = 8;
@@ -27,6 +19,19 @@ const Home = () => {
     const indexOfFirstDog = indexOfLastDog - dogsForPage;
     const dogsToShow = dogsfiltered.slice(indexOfFirstDog, indexOfLastDog)
     const totalPages = Math.ceil(dogsfiltered.length / dogsForPage)
+
+    orderDogs = false
+
+    useEffect(() => {
+        if (dogsfiltered.length === 1) {
+            setCurrentPage(1)
+        }
+        if (!orderDogs) {
+            dispatch(getAllDogs())
+        }
+    }, [dispatch, orderDogs])
+
+
 
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);

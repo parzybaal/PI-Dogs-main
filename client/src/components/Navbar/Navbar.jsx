@@ -69,7 +69,8 @@ const Navbar = () => {
                     <select value={order} className={style.order} name="order" id="" onChange={handleOrder}>
                         <option value="ascendent">Ascendent</option>
                         <option value="descendent">Descendent</option>
-                        <option value="weight">Weight</option>
+                        <option value="weight min-max">Weight min-max</option>
+                        <option value="weight max-min">Weight max-min</option>
                     </select>
                 </div>
                 <div className={style.logout}>
