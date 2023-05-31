@@ -1,12 +1,12 @@
 const  axios  = require ("axios")
 const { Temperaments } = require ("../db")
-const { API_KEY, URL } = process.env;
+const { API_KEY } = process.env;
 
 
 
 const getTemperaments = async () => {
     
-    const apiTemps = await axios.get(`${URL}?api_key=${API_KEY}`);
+    const apiTemps = await axios.get(`${URL_DEPLOY}?api_key=${API_KEY}`);
     const apiTempsClean = apiTemps.data.map(dogs => {return {temperament: dogs.temperament}})
  
     const allDogs = [...apiTempsClean]
