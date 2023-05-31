@@ -12,7 +12,7 @@ import {
     DELETE_DOG
  } from "../actions-types/actions-types"
  
-const URL = "http://localhost:3001/dogs"
+const URL = "https://agreeable-condition-production.up.railway.app/home"
 const URL_TEMPS = "http://localhost:3001/temperaments"
 
 export const getAllDogs = () => {
