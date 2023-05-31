@@ -19,7 +19,7 @@ const DogsContainer = ({ dogsToShow }) => {
                         id={dog.id}
                         name={dog.name}
                         image={dog.image}
-                        temperaments={dog.temperaments.map(temps => temps.name)}
+                        temperaments={dog.temperaments?.map(temps => temps.name)}
                         weight={dog.weight}
                     />
                     :

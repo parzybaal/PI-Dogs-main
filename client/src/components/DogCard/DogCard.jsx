@@ -23,7 +23,7 @@ const DogCard = (dogs) => {
             <div className={style.temps}>
                 <p className={style.temps_p}>
                     Temperaments: {(dogs.createdApi
-                        ? dogs.temperaments.map((temps, index) => `${temps}${index !== dogs.temperaments.length - 1 && ", "}`)
+                        ? dogs.temperaments?.map((temps, index) => `${temps}${index !== dogs.temperaments.length - 1 && ", "}`)
                         : dogs.temperament)}
                 </p>
             </div>

@@ -6,8 +6,6 @@ import Navbar from "./components/Navbar/Navbar"
 import './App.css';
 import { Route, Routes, useLocation } from "react-router-dom";
 
-
-
 function App() {
   
   const location = useLocation();
@@ -16,7 +14,7 @@ function App() {
     <div className="App">
 
           {
-            (location.pathname !== "/" && location.pathname !== "/detail/:id") && <Navbar />
+            location.pathname !== "/" &&  <Navbar />
           } 
 
       <Routes>

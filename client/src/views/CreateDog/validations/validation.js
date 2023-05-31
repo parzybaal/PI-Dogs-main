@@ -13,7 +13,12 @@ const validation = (form) => {
     
     
 //----------------------------------------------------------------------
+    
     let weight = form.weight.split(" ")
+    
+    if (weight.join("") !== +weight.join("") ) {
+        errors.weight = "Only can be numbers"
+    }
 
     if (+weight[0] <= 0 || +weight[1] <= 0) {
         errors.weight = "The minimum and maximum weight cannot be 0 or negative."
@@ -30,6 +35,10 @@ const validation = (form) => {
 //-------------------------------------------------------------------
     let height = form.height.split(" ")
     
+    if (height.join("") !== +height.join("") ) {
+        errors.height = "Only can be numbers"
+    }
+
     if (+height[0] <= 0 || +height[1] <= 0) {
         errors.height = "The minimum and maximum height cannot be 0 or negative."
     }
@@ -44,6 +53,10 @@ const validation = (form) => {
 
 //-------------------------------------------------------------------
     let life_time = form.life_time.split(" ")
+
+    if (life_time.join("") !== +life_time.join("") ) {
+        errors.life_time = "Only can be numbers"
+    }
 
     if (+life_time[0] <= 0 || +life_time[1] <= 0) {
         errors.life_time = "The minimum and maximum life_time cannot be 0 or negative."
