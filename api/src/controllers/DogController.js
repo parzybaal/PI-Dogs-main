@@ -21,7 +21,7 @@ const cleanApi = (api) => {
 
 const getAllDogs = async () => {
     const dbDogs = await Dogs.findAll({include: [Temperaments]});
-    const apiDogs = await axios.get(`${URL_DEPLOY}?api_key=${API_KEY}`);
+    const apiDogs = await axios.get(`${URL}?api_key=${API_KEY}`);
 
     //filtro la información que necesito unicamente
     const apiDogsresult = cleanApi(apiDogs)
@@ -34,7 +34,7 @@ const getAllDogs = async () => {
 const getDogById = async(id, source) => {
     if(source === "api"){ 
         const dogs = await getAllDogs()
-        const response = await axios.get(`${URL_DEPLOY}/${id}?api_key=${API_KEY}`)
+        const response = await axios.get(`${URL}/${id}?api_key=${API_KEY}`)
         const dogApi = {
             id: response.data.id,
             name: response.data.name,
