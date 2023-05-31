@@ -23,9 +23,6 @@ const Home = () => {
     orderDogs = false
 
     useEffect(() => {
-        if (dogsfiltered.length === 1) {
-            setCurrentPage(1)
-        }
         if (!orderDogs) {
             dispatch(getAllDogs())
         }

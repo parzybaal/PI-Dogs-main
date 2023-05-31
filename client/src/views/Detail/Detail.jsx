@@ -20,7 +20,7 @@ const Detail = () => {
             dispatch(getDetailDog(id))
         }
         return () => dispatch(cleanDogById())
-    }, [dispatch, id])
+    }, [dispatch, id, deleteState])
 
     return (
         <div className={style.container}>
